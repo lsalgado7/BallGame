@@ -16,9 +16,9 @@ public class PlayerController : MonoBehaviour
     private bool isGrounded;
     public bool jumpCharge;
 
-    public float speed = 0;
+    public float speed = 5;
     public float jumpForce = 5f;
-    public float dblJumpForce;
+    public float dblJumpForce = 7f;
     private float yVel;
 
     public LayerMask groundLayer;
@@ -103,7 +103,7 @@ public class PlayerController : MonoBehaviour
             {
                 dblJumpForce = (-1 * yVel) + jumpForce;
             }
-            Vector3 dblJumpForceVector = new Vector3(movementX, dblJumpForce, movementY);
+            Vector3 dblJumpForceVector = new Vector3(movementX*2, dblJumpForce, movementY*2);
             rb.AddForce(dblJumpForceVector, ForceMode.Impulse);
         }
     }
